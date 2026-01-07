@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       return const LoginScreen(); // No session
     }
 
-    if (user.email == 'kushal23241a05c7@grietcollege.com') {
+    if (user.email == 'kushal.vakada@gmail.com') {
       return const AdminAvailableBooksScreen(); // Admin
     }
 

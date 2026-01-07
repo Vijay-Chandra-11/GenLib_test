@@ -787,10 +787,19 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                 return const Center(child: CircularProgressIndicator());
               }
               final genresSet = <String>{};
+              // for (var doc in snapshot.data!.docs) {
+              //   final genre = doc['genre'];
+              //   if (genre != null && genre.toString().trim().isNotEmpty) {
+              //     genresSet.add(genre);
+              //   }
+              // }
               for (var doc in snapshot.data!.docs) {
-                final genre = doc['genre'];
-                if (genre != null && genre.toString().trim().isNotEmpty) {
-                  genresSet.add(genre);
+                final data = doc.data() as Map<String, dynamic>;
+                if (data.containsKey('genre')) {
+                  final genre = data['genre'];
+                  if (genre != null && genre.toString().trim().isNotEmpty) {
+                    genresSet.add(genre);
+                  }
                 }
               }
               final genres = genresSet.toList();
